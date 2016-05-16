@@ -2,7 +2,6 @@
 """Jobs running in scriptworker will use functions in this file.
 """
 import arrow
-import asyncio
 import glob
 import json
 import jsonschema
@@ -60,14 +59,13 @@ async def _get_temp_creds_from_file(config, num_files=2):
     )
 
 
-def get_temp_creds_from_file(config):
+async def get_temp_creds_from_file(config):
     """Retry _get_temp_creds_from_file
     """
-    loop = asyncio.get_event_loop()
-    return loop.run_until_complete(retry_async(
-        _get_temp_creds_from_file, retry_exceptions=(ScriptWorkerTaskException,),
+    return await retry_async(
+        _get_temp_creds_from_file, retry_exceptions=(ScriptWorkerTaskException, ),
         args=(config, ),
-    ))
+    )
 
 
 def validate_task_schema(task, schema):

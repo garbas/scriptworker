@@ -60,11 +60,11 @@ class TestClient(object):
         copyfile(BASIC_TASK, os.path.join(config['work_dir'], "task.json"))
         assert client.get_task(config)["this_is_a_task"] is True
 
-    def test_retry_fail_creds(self, config):
+    def test_retry_fail_creds(self, config, event_loop):
         populate_credentials(config, [CLIENT_CREDS, PARTIAL_CREDS, PARTIAL_CREDS])
         with mock.patch.object(utils, "calculateSleepTime", new=no_sleep):
             with pytest.raises(ScriptWorkerTaskException):
-                client.get_temp_creds_from_file(config)
+                event_loop.run_until_complete(client.get_temp_creds_from_file(config))
 
     def test_get_missing_creds(self, config, event_loop):
         with pytest.raises(ScriptWorkerTaskException):
