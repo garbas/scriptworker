@@ -30,7 +30,9 @@ async def request(context, url, timeout=60, method='get', good=(200, ),
                 raise ScriptWorkerException(message)
             if return_type == 'text':
                 return await resp.text()
-            return await resp.json()
+            elif return_type == 'json':
+                return await resp.json()
+            return await resp.content
 
 
 async def retry_request(*args, retry_exceptions=(ScriptWorkerRetryException, ),
