@@ -16,3 +16,4 @@ pytest-xdist
 
 setuptools_scm
 vcversioner
+pytest-runner

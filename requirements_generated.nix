@@ -430,6 +430,24 @@ self: {
 
 
 
+  "pytest-runner" = python.mkDerivation {
+    name = "pytest-runner-2.8";
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/46/6c/ff61a9e0d513222afa3529bdb565a465812b7e50b218a5afd705f46b258c/pytest-runner-2.8.tar.gz";
+      md5= "041f3624f450d87a242e3907d7f90e8f";
+    };
+    doCheck = commonDoCheck;
+    buildInputs = commonBuildInputs;
+    propagatedBuildInputs = [ ];
+    meta = {
+      homepage = "";
+      license = "";
+      description = "Invoke py.test as distutils command with dependency resolution";
+    };
+  };
+
+
+
   "pytest-xdist" = python.mkDerivation {
     name = "pytest-xdist-1.14";
     src = pkgs.fetchurl {
