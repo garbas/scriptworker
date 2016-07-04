@@ -1,4 +1,4 @@
-# generated using pypi2nix tool (version: 1.1.1)
+# generated using pypi2nix tool (version: 1.2.0)
 #
 # COMMAND:
 #   pypi2nix -r requirements.txt -V 3.5
@@ -485,6 +485,24 @@ self: {
       homepage = "";
       license = "lib.asl20";
       description = "Python HTTP for Humans.";
+    };
+  };
+
+
+
+  "setuptools-scm" = python.mkDerivation {
+    name = "setuptools-scm-1.11.1";
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/84/aa/c693b5d41da513fed3f0ee27f1bf02a303caa75bbdfa5c8cc233a1d778c4/setuptools_scm-1.11.1.tar.gz";
+      md5= "4d19b2bc9580016d991f665ac20e2e8f";
+    };
+    doCheck = commonDoCheck;
+    buildInputs = commonBuildInputs;
+    propagatedBuildInputs = [ ];
+    meta = {
+      homepage = "";
+      license = "lib.mit";
+      description = "the blessed package to manage your versions by scm tags";
     };
   };
 

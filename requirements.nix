@@ -1,4 +1,4 @@
-# generated using pypi2nix tool (version: 1.1.1)
+# generated using pypi2nix tool (version: 1.2.0)
 #
 # COMMAND:
 #   pypi2nix -r requirements.txt -V 3.5
