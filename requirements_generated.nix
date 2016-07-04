@@ -568,6 +568,24 @@ self: {
 
 
 
+  "vcversioner" = python.mkDerivation {
+    name = "vcversioner-2.16.0.0";
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/c5/cc/33162c0a7b28a4d8c83da07bc2b12cee58c120b4a9e8bba31c41c8d35a16/vcversioner-2.16.0.0.tar.gz";
+      md5= "aab6ef5e0cf8614a1b1140ed5b7f107d";
+    };
+    doCheck = commonDoCheck;
+    buildInputs = commonBuildInputs;
+    propagatedBuildInputs = [ ];
+    meta = {
+      homepage = "";
+      license = "ISC";
+      description = "Use version control tags to discover version numbers";
+    };
+  };
+
+
+
   "virtualenv" = python.mkDerivation {
     name = "virtualenv-15.0.2";
     src = pkgs.fetchurl {

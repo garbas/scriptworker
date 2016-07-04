@@ -13,4 +13,6 @@ pytest-asyncio==0.3.0
 pytest-cov
 pytest-mock
 pytest-xdist
+
 setuptools_scm
+vcversioner
